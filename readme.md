@@ -16,7 +16,7 @@ Dataset used for training is from Kaggle [Galaxy zoo](https://www.kaggle.com/c/g
 
 
 ## Notebook 📒
-View the notebook here: [pneumonia-det.ipynb](https://nbviewer.org/github/kingjuno/Galaxy-Classification/blob/master/notebook/galaxy_zoo_checkpoint.ipynb)
+View the notebook here: [galaxyclassification.ipynb](https://nbviewer.org/github/kingjuno/Galaxy-Classification/blob/master/notebook/galaxy_zoo_checkpoint.ipynb)
 
 
 
@@ -25,6 +25,5 @@ The model has been been converted to ONNX format and deployed using Gradio & hos
 
 
 ## Predictions 🔍
-Predictions on unseen test data:
-
+Predictions on test data:
 ![samplepred](assets/classification.gif)

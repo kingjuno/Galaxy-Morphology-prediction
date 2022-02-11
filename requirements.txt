@@ -3,3 +3,4 @@ onnxruntime
 numpy
 albumentations
 opencv-python-headless
+jinja2
