@@ -10,7 +10,11 @@ def classify(img):
 
 
 title = "Galaxy classifier"
-description = "Classify a galaxy based on its properties"
+description = "Classify a galaxy based on its properties."
+article = """<p style='text-align: center'>
+        <a href='https://nbviewer.org/github/kingjuno/Galaxy-Classification/blob/master/notebook/galaxy_zoo_checkpoint.ipynb?flush_cache=true' target='_blank'>Notebook Link</a>
+        <br><a href='https://github.com/kingjuno/Galaxy-Classification' target='_blank'>Github Repo</a></p>
+    """
 
 examples = [
     ['samples/100008.jpg'],
@@ -24,6 +28,7 @@ gr.Interface(
     classify,
     title=title,
     description=description,
+    article=article,
     examples=examples,
     inputs=gr.inputs.Image(type="filepath"),
     outputs="html",
