@@ -4,7 +4,7 @@
 [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/kingjuno/Galaxy-Classification/blob/master/notebook/galaxy_zoo_checkpoint.ipynb?flush_cache=true)
 
 
-The model architecture used is [resnet18](https://arxiv.org/pdf/1512.03385) which is trained using PyTorch, and then converted to ONNX format for deployment using Heroku.
+The model is trained using PyTorch, and then converted to ONNX format for deployment using Heroku.
 
 
 ## Dataset 📂

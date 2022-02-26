@@ -3,36 +3,29 @@ import cv2
 import numpy as np
 import onnxruntime
 
-def sigmoid(x):
-  return (1 / (1 + np.exp(-x)))
 
 def preprocess(img_filepath):
     image = cv2.imread(img_filepath)
     image = (np.array(image).astype(np.float32))/255.
 
     test_transform = A.Compose([
-        A.Resize(width=224, height=224, p=1.0)
+        A.Resize(width=424, height=424, p=1.0),
+        A.Crop(
+            x_min=(424-256)//2,
+            y_min=(424-256)//2,
+            x_max=(424-256)//2+256,
+            y_max=(424-256)//2+256,
+        ),
+        A.Resize(width=64, height=64, p=1.0)
     ])
 
     aug = test_transform(image=image)
     image = aug['image']
-
     image = image.transpose((2, 0, 1))
 
-    # image normalize
-    mean_vec = np.array([0.485, 0.456, 0.406])
-    std_vec = np.array([0.229, 0.224, 0.225])
-
-    for i in range(image.shape[0]):
-        image[i, :, :] = (image[i, :, :] - mean_vec[i]) / (std_vec[i])
-
     image = np.stack([image]*1)
-
+    print(image, image.shape)
     return image
-
-
-def NormalizeData(data):
-    return (data - np.min(data)) / (np.max(data) - np.min(data))
 
 
 def predict(input_img):
@@ -44,7 +37,7 @@ def predict(input_img):
 
     result = session.run([output_name], {input_name: input_img})
 
-    return sigmoid(np.array(result))
+    return np.array(result)
 
 
 def array_to_html_table(array):
